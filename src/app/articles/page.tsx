@@ -3,6 +3,9 @@ import { Article } from "@/utils/types";
 
 const Articles = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+
+  if (!response.ok) throw new Error("Failed To fetch Articles");
+
   const data: Article[] = await response.json();
 
   return (
