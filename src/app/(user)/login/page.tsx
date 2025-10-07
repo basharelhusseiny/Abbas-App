@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface FormData {
@@ -7,7 +8,8 @@ interface FormData {
 }
 
 const LoginPage = () => {
-  let [formData, setFormData] = useState<FormData>({
+  const router = useRouter();
+  const [formData, setFormData] = useState<FormData>({
     email: "",
     password: "",
   });
@@ -25,6 +27,7 @@ const LoginPage = () => {
     if (formData.password === "") return console.log("Password Is Empty");
 
     console.log(formData);
+    router.replace("/");
   };
   return (
     <div className="bg-gray-200 w-md p-5 rounded-sm absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

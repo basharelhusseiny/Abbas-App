@@ -1,3 +1,4 @@
+import AddCommentForm from "@/components/Comments/AddCommentForm";
 import { Article } from "@/utils/types";
 
 interface SingleArticlePageProps {
@@ -17,8 +18,11 @@ const SingleArticlePage = async ({ params }: SingleArticlePageProps) => {
 
   return (
     <div className="container mx-auto px-5">
-      <h3 className="font-semibold truncate">{article.title}</h3>
-      <p className="text-sm mt-2 line-clamp-3">{article.body}</p>
+      <div className="border-2 rounded-md p-3 text-center w-xl mx-auto mt-7 bg-gray-100">
+        <h3 className="font-semibold truncate">{article.title}</h3>
+        <p className="text-sm mt-2 line-clamp-3">{article.body}</p>
+      </div>
+      <AddCommentForm />
     </div>
   );
 };
